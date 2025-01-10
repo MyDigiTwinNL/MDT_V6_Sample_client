@@ -19,7 +19,7 @@ input_ = {
 
 average_task = client.task.create(
    collaboration=2,
-   organizations=[2],
+   organizations=[7],
    name="max-task",
    image="harbor2.vantage6.ai/demo/average",
    description='',
@@ -28,3 +28,9 @@ average_task = client.task.create(
       {'label': 'default'}
    ]
 )
+
+task_id = average_task['id']
+print('Waiting for results...')
+result = client.wait_for_results(task_id)
+print('Results received!')
+print(result)
